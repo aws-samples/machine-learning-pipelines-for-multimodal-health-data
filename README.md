@@ -1,8 +1,8 @@
 
-This repository contains code samples related to the [blog post](https://aws.amazon.com/blogs/) Analyzing Multimodal Health Data on AWS.
-## Analyzing Multimodal Health Data on AWS
+This repository contains code samples related to the two-part blog series [Build Scalable Machine Learning Pipelines for Multimodal Health Data on AWS](https://aws.amazon.com/blogs/) and [Train Machine Learning Models on Multimodal Health Data with Amazon SageMaker](https://aws.amazon.com/blogs/).
+## Machine Learning Pipelines for Multimodal Health Data
 
-You can use these artifacts to recreate the pipelines and analysis presented in the blog post, and shown below.  
+You can use these artifacts to recreate the pipelines and analysis presented in the blog posts, and shown below.  
 
 ![Architecture on AWS](./images/architecture.png)
 
