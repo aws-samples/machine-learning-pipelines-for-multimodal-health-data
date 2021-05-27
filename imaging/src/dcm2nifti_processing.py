@@ -21,10 +21,10 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--subject', type=str, default='R01-003',
                         help='Subject ID (default: R01-003)')
-    parser.add_argument('--feature_store_name', type=str, default='nsclc-radiogenomics-imaging-feature-group-04-01-30-13',
-                        help='SageMaker Feature Store Group Name (default: nsclc-radiogenomics-imaging-feature-group-04-01-30-13)')
-    parser.add_argument('--offline_store_s3uri', type=str, default='s3://multimodal-image-data-processed/nsclc-radiogenomics-multimodal-imaging-featurestore',
-                        help='SageMaker Feature Offline Store S3 URI (default: s3://multimodal-image-data-processed/nsclc-radiogenomics-multimodal-imaging-featurestore)')
+    parser.add_argument('--feature_store_name', type=str, default='nsclc-radiogenomics-imaging-feature-group',
+                        help='SageMaker Feature Store Group Name (default: nsclc-radiogenomics-imaging-feature-group)')
+    parser.add_argument('--offline_store_s3uri', type=str,
+                        help='SageMaker Feature Offline Store S3 URI Example: s3://multimodal-image-data-processed/nsclc-radiogenomics-multimodal-imaging-featurestore.')
     
     args = parser.parse_args()
     
