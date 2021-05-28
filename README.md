@@ -1,7 +1,7 @@
 # Analyzing Multimodal Health Data on AWS
 
 ## Introduction
-This repository contains code samples related to the two-part blog series [Building Scalable Machine Learning Pipelines for Multimodal Health Data on AWS](https://aws-preview.aka.amazon.com/blogs/industries/building-scalable-machine-learning-pipelines-for-multimodal-health-data-on-aws/) [and Training Machine Learning Models on Multimodal Health Data with Amazon SageMaker](https://aws-preview.aka.amazon.com/blogs/industries/training-machine-learning-models-on-multimodal-health-data-with-amazon-sagemaker/)
+This repository contains code samples related to the two-part blog series [Building Scalable Machine Learning Pipelines for Multimodal Health Data on AWS](https://aws-preview.aka.amazon.com/blogs/industries/building-scalable-machine-learning-pipelines-for-multimodal-health-data-on-aws/) and [Training Machine Learning Models on Multimodal Health Data with Amazon SageMaker](https://aws-preview.aka.amazon.com/blogs/industries/training-machine-learning-models-on-multimodal-health-data-with-amazon-sagemaker/)
 
 ## Machine Learning Pipelines for Multimodal Health Data
 
@@ -21,7 +21,7 @@ Artifacts for processing each data modality are located in corresponding subdire
 ./model-train-test/ <-- Artifacts for performing model training and testing
 ```
 
-* The clinical data can also be preprocessed with Amazon SageMaker Data Wrangler, as discussed in the blog.
+\* The clinical data can also be preprocessed with Amazon SageMaker Data Wrangler, as discussed in the blog.
 
 ## Security
 
