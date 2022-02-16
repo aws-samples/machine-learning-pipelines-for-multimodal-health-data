@@ -32,13 +32,13 @@ After gene selection from the source data, the dataset looks like
 #### Clinical record
 The clinical records are stored in CSV format. Each row corresponds to a patient and the columns represent information about the patients, including demographics, tumor stage, and survival status. 
 
-| Case ID   | Patient affiliation   |   Age at Histological Diagnosis | Weight (lbs)   | Gender   | Ethnicity                        | Smoking status   | Pack Years    |  ......  | Survival Status   |
-|:----------|:----------------------|--------------------------------:|:---------------|:---------|:---------------------------------|:-----------------|:--------------|:---------|:------|
-| R01-005   | Stanford              |                              84 | 145            | Male     | Native Hawaiian/Pacific Islander | Former           | 20            |  ......  | Dead |
-| R01-006   | VA                    |                              62 | Not Collected  | Male     | Caucasian                        | Former           | Not Collected |  ......  | Alive |
-| R01-007   | VA                    |                              68 | Not Collected  | Male     | Caucasian                        | Former           | 15            |  ......  | Dead |
-| R01-008   | Stanford              |                              73 | 102            | Male     | Caucasian                        | Nonsmoker        | nan           |  ......  | Alive |
-| R01-009   | VA                    |                              59 | 133            | Male     | Caucasian                        | Current          | 100           |  ......  | Dead |
+| Case ID   |   Age at Histological Diagnosis | Weight (lbs)   | Smoking status   | Pack Years    |   Quit Smoking Year | Chemotherapy   | Adjuvant Treatment   | EGFR mutation status   | Survival Status   |
+|:----------|--------------------------------:|:---------------|:-----------------|:--------------|--------------------:|:---------------|:---------------------|:-----------------------|:------------------|
+| R01-005   |                              84 | 145            | Former           | 20            |                1951 | No             | No                   | Wildtype               | Dead              |
+| R01-006   |                              62 | Not Collected  | Former           | Not Collected |                 nan | No             | No                   | Wildtype               | Alive             |
+| R01-007   |                              68 | Not Collected  | Former           | 15            |                1968 | Yes            | Yes                  | Wildtype               | Dead              |
+| R01-008   |                              73 | 102            | Nonsmoker        | nan           |                 nan | No             | No                   | Wildtype               | Alive             |
+| R01-009   |                              59 | 133            | Current          | 100           |                 nan | No             | No                   | Wildtype               | Dead              |
 
 #### Medical imaging
 Medical imaging biomarkers of cancer promise improvements in patient care through advances in precision medicine. Compared to genomic biomarkers, imaging biomarkers provide the advantages of being non-invasive, and characterizing a heterogeneous tumor in its entirety, as opposed to limited tissue available via biopsy [3]. In this dataset, CT and PET/CT imaging sequences were acquired for patients prior to surgical procedures. Segmentation of tumor regions were annotated by two expert thoracic radiologists. 
