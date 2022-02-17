@@ -92,7 +92,7 @@ This results in a dimensionality reduction from 215 features down to 65 **(to be
 To train the ML model to predict patient survival status, we use the SageMaker built-in XGBoost estimator for binary classification.
 
 ### What Are the Outputs?
-
+The solution produces a machine learning model that predicts NSCLC patients' survival status (dead or alive) in a form of probability. Besides the model and prediction, we also generate reports to explain the model. The medical imaging pipeline produces 3D lung CT volumes and tumor segmentation for visualization purposes.
 
 ## Architecture Overview
 The solution architecture is illustrated below. We demonostrate the use of SageMaker Feature Store to store and manage multi-modal health data for machine learning training and inference purposes.
@@ -119,8 +119,15 @@ Applying ML to diverse health datasets, known as Multimodal Machine Learning (Mu
 ### Q. Who can use this notebook?
 The solution can be used by anyone interested in learning multi-modal ML and cloud architecting from a HCLS use case. This solution is most relevant to people working in the HCLS industry. This includes pharmaceutical companies, ISVs, healthcare providers, AMCs, and research institutes. 
 
-### Q. How do I use this notebook?
-TBA
+### Q. How do I use this solution?
+You can start with the demo notebook (`0_demo.ipynb`) to learn how a pre-built ML model interacts with some test samples. Then you can start working with the full solution notebooks to explore the multimodal health data and learn how to process them and ingest them into multimodal feature store. The suggested order to work with the multimodal data is:
+1. `1_preprocess_genomic_data.ipynb` for genomic data;
+2. `2_preprocess_clinical_data.ipynb` for clinical data;
+3. `3_preprocess_imaging_data.ipynb` for medical imaging data.
+
+It is worth noting that the three notebooks are independent from each other, therefore, you can run them in any order.
+
+And finally you can run the model training notebook (`4_train_test_model.ipynb`) to train a survival status prediction model from multimodal feature store, and to host the model for prediction.
 
 ### Q. What is the Estimated Cost?
 You can expect $13 cost to run this solution in SageMaker Studio, *assuming your notebook kernels are shutdown and your endpoint is deleted after completion*. 
