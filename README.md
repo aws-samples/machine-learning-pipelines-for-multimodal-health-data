@@ -33,13 +33,13 @@ After gene selection from the source data, the dataset looks like
 #### Clinical record
 The clinical records are stored in CSV format. Each row corresponds to a patient and the columns represent information about the patients, including demographics, tumor stage, and survival status. 
 
-| Case ID   |   Age at Histological Diagnosis | Weight (lbs)   | Smoking status   | Pack Years    |   Quit Smoking Year | Chemotherapy   | Adjuvant Treatment   | EGFR mutation status   |  ......  | Survival Status   |
+| Case ID   | Survival Status   |  Age at Histological Diagnosis | Weight (lbs)   | Smoking status   | Pack Years    |   Quit Smoking Year | Chemotherapy   | Adjuvant Treatment   | EGFR mutation status   |  ......  | 
 |:----------|--------------------------------:|:---------------|:-----------------|:--------------|--------------------:|:---------------|:---------------------|:-----------------------|:---------|:------------------|
-| R01-005   |                              84 | 145            | Former           | 20            |                1951 | No             | No                   | Wildtype               |  ......  | Dead              |
-| R01-006   |                              62 | Not Collected  | Former           | Not Collected |                 nan | No             | No                   | Wildtype               |  ......  | Alive             |
-| R01-007   |                              68 | Not Collected  | Former           | 15            |                1968 | Yes            | Yes                  | Wildtype               |  ......  | Dead              |
-| R01-008   |                              73 | 102            | Nonsmoker        | nan           |                 nan | No             | No                   | Wildtype               |  ......  | Alive             |
-| R01-009   |                              59 | 133            | Current          | 100           |                 nan | No             | No                   | Wildtype               |  ......  | Dead              |
+| R01-005   | Dead              |                             84 | 145            | Former           | 20            |                1951 | No             | No                   | Wildtype               |  ......  | 
+| R01-006   | Alive             |                           62 | Not Collected  | Former           | Not Collected |                 nan | No             | No                   | Wildtype               |  ......  | 
+| R01-007   | Dead              |                            68 | Not Collected  | Former           | 15            |                1968 | Yes            | Yes                  | Wildtype               |  ......  | 
+| R01-008   | Alive             |                           73 | 102            | Nonsmoker        | nan           |                 nan | No             | No                   | Wildtype               |  ......  | 
+| R01-009   | Dead              |                             59 | 133            | Current          | 100           |                 nan | No             | No                   | Wildtype               |  ......  |
 
 ### How to Prepare Your Data to Feed into the Model
 For genomic data, we keep 21 genes from 10 highly coexpressed gene clusters (metagenes) that were identified, validated in publicly available gene-expression cohorts, and correlated with prognosis [3]. Please see [1_preprocess_genomic_data.ipynb](./src/1_preprocess_genomic_data.ipynb) for detail.
