@@ -14,37 +14,6 @@ Medical imaging biomarkers of cancer promise improvements in patient care throug
 
 ![ortho-view](./docs/R01-093_06-22-1994_ortho-view.png)
 
-Medical imaging data is commonly stored in the [DICOM](https://www.dicomstandard.org/) file format, a standard that combines metadata and pixel data in a single object. For a volumetric scan, such as a lung CT scan, each cross-section slice is typically stored as an individual DICOM file. However, for ML purposes, analyzing 3-dimensional data provides a more wholistic view of the region of interest (ROI), thus providing better predictive values. In this dataset, the source dataset is stored in DICOM format organized by patient/study/imaging sequence, as shown in the directory structure below.
-
-```
-R01-093/  # patient case ID
-   ├── 1.3.6.1.4.1.14519.5.2.1.4334.1501.240670240758603778272625719701/  # imaging study ID 1
-   │   ├── 06-22-1994/  # date of imaging study 1
-   │   │   ├── 1.3.6.1.4.1.14519.5.2.1.4334.1501.142853031813998654275885617348.json  # metadata for an imaging sequence
-   │   │   ├── 1.3.6.1.4.1.14519.5.2.1.4334.1501.142853031813998654275885617348/  # corresponding imaging sequence
-   │   │   │   ├── 1.3.6.1.4.1.14519.5.2.1.4334.1501.268122123877676186625117813999.dcm  # DICOM file(s) for the imaging sequence
-   │   │   │   └── ... if there are more *.dcm files
-   │   │   ├── 1.3.6.1.4.1.14519.5.2.1.4334.1501.143700250022821944637075337096.json
-   │   └───┴── 1.3.6.1.4.1.14519.5.2.1.4334.1501.143700250022821944637075337096/
-   │           └── *.dcm
-   ├── 1.3.6.1.4.1.14519.5.2.1.4334.1501.891373270862787721463778581588/  # imaging study ID 2
-   │   ├── 08-31-1994/  # date of imaging study 2
-   │   │   ├── 1.3.6.1.4.1.14519.5.2.1.4334.1501.127121510050458520043845333993/
-   │   │   ├── 1.3.6.1.4.1.14519.5.2.1.4334.1501.127121510050458520043845333993.json
-   │   │   ├── 1.3.6.1.4.1.14519.5.2.1.4334.1501.133664984480262659047625676012/
-   │   │   ├── 1.3.6.1.4.1.14519.5.2.1.4334.1501.133664984480262659047625676012.json
-   │   │   ├── 1.3.6.1.4.1.14519.5.2.1.4334.1501.172375466107449789684787272970/
-   │   │   ├── 1.3.6.1.4.1.14519.5.2.1.4334.1501.172375466107449789684787272970.json
-   │   │   ├── 1.3.6.1.4.1.14519.5.2.1.4334.1501.204884611948428816419269906683/
-   │   │   ├── 1.3.6.1.4.1.14519.5.2.1.4334.1501.204884611948428816419269906683.json
-   │   │   ├── 1.3.6.1.4.1.14519.5.2.1.4334.1501.257442018730697717273113074489/
-   │   │   ├── 1.3.6.1.4.1.14519.5.2.1.4334.1501.257442018730697717273113074489.json
-   │   │   ├── 1.3.6.1.4.1.14519.5.2.1.4334.1501.287138696590093616857690167236/
-   │   │   ├── 1.3.6.1.4.1.14519.5.2.1.4334.1501.287138696590093616857690167236.json
-   │   │   ├── 1.3.6.1.4.1.14519.5.2.1.4334.1501.327652266327905984847451930257/
-   └───┴───┴── 1.3.6.1.4.1.14519.5.2.1.4334.1501.327652266327905984847451930257.json
-```
-
 #### Genomic 
 Total RNA was extracted from the tumor tissue and analyzed with RNA sequencing technology. 
 The dataset file that is available from the source was pre-processed using open-source tools including STAR v.2.3 for alignment and Cufflinks v.2.0.2 for expression calls. Further details can be found in [3]. The original dataset (GSE103584_R01_NSCLC_RNAseq.txt.gz) is also available in https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE103584.
@@ -85,8 +54,8 @@ For medical imaging data, we create patient-level 3-dimensional radiomic feature
 
 To create a multi-modal view of a patient for model training, we join the feature vectors from three modalities. We then process the data with the following steps:
 - Normalize the range of independent features using feature scaling,
-- Perform principal component analysis (PCA) on the features to reduce the dimensionality and identify the most discriminative features that contribute 95% **(to be updated)** variance in the data, 
-This results in a dimensionality reduction from 215 features down to 45 **(to be updated)** principal components, which constitute features for the supervised learner.
+- Perform principal component analysis (PCA) on the features to reduce the dimensionality and identify the most discriminative features that contribute 95% variance in the data, 
+This results in a dimensionality reduction from 215 features down to 45 principal components, which constitute features for the supervised learner.
 
 ### What Algorithm is Used?
 To train the ML model to predict patient survival status, we use the SageMaker built-in XGBoost estimator for binary classification.
@@ -97,7 +66,7 @@ The solution produces a machine learning model that predicts NSCLC patients' sur
 ## Architecture Overview
 The solution architecture is illustrated below. We demonostrate the use of SageMaker Feature Store to store and manage multi-modal health data for machine learning training and inference purposes.
 
-![sol-arch-diagram](./docs/multimodal-architecture-overall-jumpstart-SfnRemoved.png)
+![sol-arch-diagram](./docs/multimodal-architecture-overall-jumpstart-20220217.png)
 
 As described above in [How to Prepare Your Data to Feed into the Model](#how-to-prepare-your-data-to-feed-into-the-model), we process data of each modality in three separate notebooks, create and ingest features into per-modality feature groups. Come training time, we flexibly choose multi-modal features using an SQL query against the offline store in SageMaker Feature Store and apply machine learning specific preprocessing and dimensionality reduction prior to training an XGBoost model from SageMaker built-in algorithm to predict the survival status of the patients. After model is trained, we host the XGBoost model in a SageMaker real-time endpoint for testing and inference purposes.
 
