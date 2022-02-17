@@ -85,8 +85,8 @@ For medical imaging data, we create patient-level 3-dimensional radiomic feature
 
 To create a multi-modal view of a patient for model training, we join the feature vectors from three modalities. We then process the data with the following steps:
 - Normalize the range of independent features using feature scaling,
-- Perform principal component analysis (PCA) on the features to reduce the dimensionality and identify the most discriminative features that contribute 99% **(to be updated)** variance in the data, 
-This results in a dimensionality reduction from 215 features down to 65 **(to be updated)** principal components, which constitute features for the supervised learner.
+- Perform principal component analysis (PCA) on the features to reduce the dimensionality and identify the most discriminative features that contribute 95% **(to be updated)** variance in the data, 
+This results in a dimensionality reduction from 215 features down to 45 **(to be updated)** principal components, which constitute features for the supervised learner.
 
 ### What Algorithm is Used?
 To train the ML model to predict patient survival status, we use the SageMaker built-in XGBoost estimator for binary classification.
