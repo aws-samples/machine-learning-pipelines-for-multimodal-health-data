@@ -116,7 +116,7 @@ Below is references mentioned in this page:
 5. Huang, Shih-Cheng, et al. “Fusion of medical imaging and electronic health records using deep learning: a systematic review and implementation guidelines.” NPJ digital medicine3.1 (2020): 1-9.
 
 ## License
-This project is licensed under the Apache-2.0 License.
+This project is licensed under the MIT License. The open-souce packages used in this project are under these [licenses](https://sagemaker-solutions-prod-us-east-2.s3-us-east-2.amazonaws.com/sagemaker-lung-cancer-survival-prediction/1.0.0/LICENSE.txt).
 
 Users of the dataset must abide by [TCIA's Data Usage Policy](https://wiki.cancerimagingarchive.net/display/Public/Data+Usage+Policies+and+Restrictions) and the [Creative Commons Attribution 3.0 Unported License](https://creativecommons.org/licenses/by/3.0/) under which it has been published.
 
