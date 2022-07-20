@@ -121,5 +121,4 @@ This project is licensed under the MIT License. The open-souce packages used in 
 Users of the dataset must abide by [TCIA's Data Usage Policy](https://wiki.cancerimagingarchive.net/display/Public/Data+Usage+Policies+and+Restrictions) and the [Creative Commons Attribution 3.0 Unported License](https://creativecommons.org/licenses/by/3.0/) under which it has been published.
 
 ## Legal Notes
->**<span style="color:RED">Important</span>**: 
->This solution is for demonstrative purposes only. It is not for clinical use. The ML inference should not be used to inform any clinical decision. The associated notebooks, including the trained model and sample data, are not intended for production.
+**<span style="color:RED">Important</span>**: This solution is for demonstrative purposes only. It is not for clinical use and is not a substitute for professional medical advice, diagnosis, or treatment. **The associated notebooks, including the trained model and sample data, are not intended for production.** It is each customers’ responsibility to determine whether they are subject to HIPAA, and if so, how best to comply with HIPAA and its implementing regulations. Before using AWS in connection with protected health information, customers must enter an AWS Business Associate Addendum (BAA) and follow its configuration requirements.
